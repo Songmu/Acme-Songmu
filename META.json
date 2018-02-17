@@ -33,6 +33,7 @@
       },
       "develop" : {
          "requires" : {
+            "Capture::Tiny" : "0",
             "Test::CPAN::Meta" : "0",
             "Test::MinimumVersion::Fast" : "0.04",
             "Test::PAUSE::Permissions" : "0.04",
@@ -42,12 +43,16 @@
       },
       "runtime" : {
          "requires" : {
+            "Class::Accessor::Lite::Lazy" : "0.03",
+            "Encode" : "0",
+            "Time::Piece" : "0",
             "perl" : "5.010"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Test::More" : "0.98",
+            "Test::Requires" : "0"
          }
       }
    },
@@ -63,7 +68,7 @@
          "web" : "https://github.com/Songmu/Acme-Songmu"
       }
    },
-   "version" : "0.01",
+   "version" : "v0.0.1",
    "x_authority" : "cpan:SONGMU",
    "x_serialization_backend" : "JSON::PP version 2.27400_02"
 }
