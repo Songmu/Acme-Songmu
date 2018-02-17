@@ -42,17 +42,23 @@ __END__
 
 =encoding utf-8
 
+=for stopwords sandboxing
+
 =head1 NAME
 
-Acme::Songmu - It's new $module
+Acme::Songmu - Songmu's sample module
 
 =head1 SYNOPSIS
 
     use Acme::Songmu;
+    my $songmu = Acme::Songmu->instance;
+    say $songmu->name; # => 'Masayuki Matsuki'
+    say $songmu->age;  # => 37
+    $songmu->gmu;      # => 'ぐむー'
 
 =head1 DESCRIPTION
 
-Acme::Songmu is ...
+Acme::Songmu is Songmu's sample CPAN module for sandboxing.
 
 =head1 LICENSE
 

@@ -1,14 +1,18 @@
 # NAME
 
-Acme::Songmu - It's new $module
+Acme::Songmu - Songmu's sample module
 
 # SYNOPSIS
 
     use Acme::Songmu;
+    my $songmu = Acme::Songmu->instance;
+    say $songmu->name; # => 'Masayuki Matsuki'
+    say $songmu->age;  # => 37
+    $songmu->gmu;      # => 'ぐむー'
 
 # DESCRIPTION
 
-Acme::Songmu is ...
+Acme::Songmu is Songmu's sample CPAN module for sandboxing.
 
 # LICENSE
 
