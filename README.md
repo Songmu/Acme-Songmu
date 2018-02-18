@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Songmu/Acme-Songmu.svg?branch=master)](https://travis-ci.org/Songmu/Acme-Songmu)
 # NAME
 
 Acme::Songmu - Songmu's sample module
