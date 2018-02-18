@@ -1,6 +1,7 @@
 Revision history for Perl extension Acme-Songmu
 
 {{$NEXT}}
+    - Adapt x_static_install
     - Enable Travis CI
     - Drop OrePAN2 Settings
 
