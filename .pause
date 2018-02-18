@@ -1,0 +1,3 @@
+user songmu
+password <dummy>
+upload_uri http://127.0.0.1:5555/authenquery
