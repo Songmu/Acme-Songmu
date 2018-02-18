@@ -3,6 +3,3 @@ name = "Acme-Songmu"
 authority="cpan:SONGMU"
 
 module_maker="ModuleBuildTiny"
-
-[release]
-pause_config = "./.pause"
