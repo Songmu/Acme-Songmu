@@ -17,16 +17,13 @@ concurrency:
 jobs:
   test:
     name: Perl ${{ matrix.perl }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
         perl:
-          - "5.10"
-          - "5.20"
-          - "5.30"
-          - "5.40"
+          - "5.42"
           - "5.44"
     steps:
       - name: Check out repository
@@ -45,12 +42,12 @@ jobs:
 
   author-test:
     name: Author tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Set up Perl
+      - name: Set up Perl and Minilla
         uses: shogo82148/actions-setup-perl@8b574cdc2dffdae49f803204a4f2b716a2fa1db7 # v1.44.2
         with:
           perl-version: "5.44"
