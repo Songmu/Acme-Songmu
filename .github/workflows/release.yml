@@ -20,7 +20,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set up Minilla
-        uses: Songmu/setup-minil@916a8f2db385501ee3a8bf068d20df6172526a95 # v0.0.3
+        uses: Songmu/setup-minil@0d5985b33eb9dd718dd6c416f6c801b884fcb672 # v0.0.4
       - name: Build distribution
         id: dist
         run: |
@@ -29,7 +29,7 @@ jobs:
           dist="$(tail -n 1 <<<"$output" | jq -er '.dist')"
           printf 'dist=%s\n' "$dist" >>"$GITHUB_OUTPUT"
       - name: Upload distribution to PAUSE
-        uses: skaji/action-pause-upload@5a97e01abbc706d80964d6ea1e52c43293b4d8a5 # v1
+        uses: skaji/action-pause-upload@5a97e01abbc706d80964d6ea1e52c43293b4d8a5 # v1.0.0
         with:
           files: ${{ steps.dist.outputs.dist }}
           pause-token: ${{ secrets.PAUSE_TOKEN }}
