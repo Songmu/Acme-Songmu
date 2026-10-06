@@ -1,22 +1,19 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   release:
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: write
-      issues: read
-      pull-requests: write
+      contents: read
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -24,20 +21,13 @@ jobs:
           persist-credentials: false
       - name: Set up Minilla
         uses: Songmu/setup-minil@916a8f2db385501ee3a8bf068d20df6172526a95 # v0.0.3
-      - name: Prepare release
-        id: tagpr
-        uses: Songmu/tagpr@967f2ab22be958948fb5bd439bfa3d404dd9dee8 # v1.21.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build distribution
         id: dist
-        if: steps.tagpr.outputs.tag != ''
         run: |
           result="$(minil dist --skip-prepare --no-test)"
           echo "$result"
           printf 'result=%s\n' "$result" >>"$GITHUB_OUTPUT"
       - name: Upload distribution to PAUSE
-        if: steps.tagpr.outputs.tag != ''
         uses: skaji/action-pause-upload@5a97e01abbc706d80964d6ea1e52c43293b4d8a5 # v1
         with:
           files: ${{ fromJSON(steps.dist.outputs.result).dist }}
