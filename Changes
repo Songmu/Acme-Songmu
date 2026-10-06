@@ -1,6 +1,8 @@
 Revision history for Perl extension Acme-Songmu
 
 {{$NEXT}}
+
+v0.1.2 2026-10-06T11:44:36Z
     - adjust release.yml
 
 v0.1.1 2026-10-06T11:25:30Z
