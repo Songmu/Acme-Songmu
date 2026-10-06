@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 use Encode;
 use Test::More;
-use Test::Requires 'Capture::Tiny';
+use Capture::Tiny;
 use Acme::Songmu;
 
 my $songmu = Acme::Songmu->instance;

@@ -8,10 +8,6 @@ on configure => sub {
 };
 
 on test => sub {
-    requires 'Test::More', '0.98';
-    requires 'Test::Requires';
-};
-
-on develop => sub {
     requires 'Capture::Tiny';
+    requires 'Test::More', '0.98';
 };
