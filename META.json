@@ -4,7 +4,7 @@
       "Songmu <y.songmu@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.3.0",
+   "generated_by" : "Minilla/v3.3.1",
    "license" : [
       "perl_5"
    ],
@@ -68,7 +68,7 @@
          "web" : "https://github.com/Songmu/Acme-Songmu"
       }
    },
-   "version" : "v0.1.2",
+   "version" : "v0.1.3",
    "x_authority" : "cpan:SONGMU",
    "x_contributors" : [
       "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
