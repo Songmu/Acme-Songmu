@@ -3,4 +3,5 @@
     changelog = false
     command = minil prepare "$TAGPR_NEXT_VERSION"
     versionFile = -
-	vPrefix = true
+    vPrefix = true
+    release = false
