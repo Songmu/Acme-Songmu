@@ -24,11 +24,12 @@ jobs:
       - name: Build distribution
         id: dist
         run: |
-          result="$(minil dist --skip-prepare --no-test)"
-          echo "$result"
-          printf 'result=%s\n' "$result" >>"$GITHUB_OUTPUT"
+          output="$(minil dist --skip-prepare --no-test)"
+          echo "$output"
+          dist="$(tail -n 1 <<<"$output" | jq -er '.dist')"
+          printf 'dist=%s\n' "$dist" >>"$GITHUB_OUTPUT"
       - name: Upload distribution to PAUSE
         uses: skaji/action-pause-upload@5a97e01abbc706d80964d6ea1e52c43293b4d8a5 # v1
         with:
-          files: ${{ fromJSON(steps.dist.outputs.result).dist }}
+          files: ${{ steps.dist.outputs.dist }}
           pause-token: ${{ secrets.PAUSE_TOKEN }}
