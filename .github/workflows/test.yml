@@ -57,6 +57,6 @@ jobs:
         with:
           perl-version: "5.44"
       - name: Set up Minilla
-        uses: Songmu/setup-minil@916a8f2db385501ee3a8bf068d20df6172526a95 # v0.0.3
+        uses: Songmu/setup-minil@0d5985b33eb9dd718dd6c416f6c801b884fcb672 # v0.0.4
       - name: Run author and release tests
         run: minil test --all
