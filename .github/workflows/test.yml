@@ -52,12 +52,13 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Set up Perl and Minilla
+      - name: Set up Perl
         uses: shogo82148/actions-setup-perl@8b574cdc2dffdae49f803204a4f2b716a2fa1db7 # v1.44.2
         with:
           perl-version: "5.44"
           install-modules-with: cpanm
           install-modules-args: --with-configure --with-develop
-          install-modules: Minilla
+      - name: Set up Minilla
+        uses: Songmu/setup-minil@916a8f2db385501ee3a8bf068d20df6172526a95 # v0.0.3
       - name: Run author and release tests
         run: minil test --all
