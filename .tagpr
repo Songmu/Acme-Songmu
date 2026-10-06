@@ -2,3 +2,4 @@
     releaseBranch = master
     changelog = false
     command = minil prepare "$TAGPR_NEXT_VERSION"
+    versionFile = -
