@@ -13,27 +13,17 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Set up Minilla
-        uses: Songmu/setup-minil@0d5985b33eb9dd718dd6c416f6c801b884fcb672 # v0.0.4
-      - name: Build distribution
-        id: dist
-        run: |
-          output="$(minil dist --skip-prepare --no-test)"
-          echo "$output"
-          dist="$(tail -n 1 <<<"$output" | jq -er '.dist')"
-          printf 'dist=%s\n' "$dist" >>"$GITHUB_OUTPUT"
-      - name: Attest build provenance
-        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+      - uses: Songmu/setup-minil@0d5985b33eb9dd718dd6c416f6c801b884fcb672 # v0.0.4
+      - run: minil dist --skip-prepare --no-test
+      - uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
-          subject-path: ${{ steps.dist.outputs.dist }}
-      - name: Upload release artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+          subject-path: '*-[v0-9]*.[0-9]*.tar.gz'
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: release-${{ github.ref_name }}
-          path: ${{ steps.dist.outputs.dist }}
+          path: '*-[v0-9]*.[0-9]*.tar.gz'
           if-no-files-found: error
           retention-days: 1
