@@ -14,7 +14,6 @@ jobs:
   build:
     if: github.ref_type == 'tag'
     permissions:
-      artifact-metadata: write
       attestations: write
       contents: read
       id-token: write
@@ -25,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      actions: read
       contents: write
     steps:
       - name: Download release artifact
