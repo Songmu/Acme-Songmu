@@ -68,7 +68,7 @@
          "web" : "https://github.com/Songmu/Acme-Songmu"
       }
    },
-   "version" : "v0.1.4",
+   "version" : "v0.1.5",
    "x_authority" : "cpan:SONGMU",
    "x_contributors" : [
       "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
