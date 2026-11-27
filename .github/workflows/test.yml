@@ -26,11 +26,11 @@ jobs:
           - "5.44"
     steps:
       - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Set up Perl
-        uses: shogo82148/actions-setup-perl@8b574cdc2dffdae49f803204a4f2b716a2fa1db7 # v1.44.2
+        uses: shogo82148/actions-setup-perl@v1.44.2
         with:
           perl-version: ${{ matrix.perl }}
           install-modules-with: cpanm
@@ -49,14 +49,14 @@ jobs:
       contents: read
     steps:
       - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Set up Perl
-        uses: shogo82148/actions-setup-perl@8b574cdc2dffdae49f803204a4f2b716a2fa1db7 # v1.44.2
+        uses: shogo82148/actions-setup-perl@v1.44.2
         with:
           perl-version: "5.44"
       - name: Set up Minilla
-        uses: Songmu/setup-minil@0d5985b33eb9dd718dd6c416f6c801b884fcb672 # v0.0.4
+        uses: Songmu/setup-minil@v0.0.4
       - name: Run author and release tests
         run: minil test --all
